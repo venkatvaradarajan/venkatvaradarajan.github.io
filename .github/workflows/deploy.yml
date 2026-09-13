@@ -33,22 +33,18 @@ jobs:
       - name: Build
         run: npm run build
 
-       - name: Build
-         run: npm run build
+      - name: Build
+        run: npm run build
 
-       - name: Remove any stale github-pages artifacts from this run
-         run: |
-           gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts \
-             --jq '.artifacts[] | select(.name=="github-pages") | .id' | \
-           xargs -r -I{} gh api -X DELETE repos/${{ github.repository }}/actions/artifacts/{}
-         env:
-           GH_TOKEN: ${{ github.token }}
-         continue-on-error: true
+      - name: Remove any stale github-pages artifacts from this run
+        run: |
+          gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | \
+          xargs -r -I{} gh api -X DELETE repos/${{ github.repository }}/actions/artifacts/{}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        continue-on-error: true
  
-       - name: Upload artifact
-         uses: actions/upload-pages-artifact@v3
-         with:
-           path: ./dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
