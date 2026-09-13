@@ -1,0 +1,10 @@
+// Email is split into user/domain and base64-encoded so it isn't sitting in
+// plain text in the page source. It's only decoded when the user clicks.
+const EMAIL_USER_B64 = 'dmVuazE5ODk='   // "venk1989"
+const EMAIL_DOMAIN_B64 = 'Z21haWwuY29t' // "gmail.com"
+
+export function getEmail(): string {
+  const user = atob(EMAIL_USER_B64)
+  const domain = atob(EMAIL_DOMAIN_B64)
+  return `${user}@${domain}`
+}

@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: #fafaf9;
+  --color-ink: #17181a;
+  --color-muted: #6b6e72;
+  --color-hairline: #e4e2dd;
+  --color-accent: #2f5d50;
+  --color-accent-dark: #244a40;
+  --color-accent-tint: #e9efec;
+}
+
+.dark {
+  --color-paper: #15171a;
+  --color-ink: #edeeec;
+  --color-muted: #9a9d9f;
+  --color-hairline: #2a2d30;
+  --color-accent: #5bab93;
+  --color-accent-dark: #7cc0ab;
+  --color-accent-tint: #1c2723;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+
+  a {
+    @apply text-ink underline decoration-hairline decoration-1 underline-offset-4 transition-colors;
+  }
+
+  a:hover {
+    @apply text-accent decoration-accent;
+  }
+
+  ::selection {
+    background-color: #2f5d5033;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2f5d50;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .section-rule {
+    @apply border-t border-hairline;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade {
+  animation: fade-up 0.7s ease-out both;
+}
