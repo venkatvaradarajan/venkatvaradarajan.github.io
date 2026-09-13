@@ -22,7 +22,7 @@ export const profile = {
   domain: 'Z21haWwuY29t',
   linkedin: 'https://www.linkedin.com/in/vvaradarajan/',
   scholar: 'https://scholar.google.com/citations?user=dzOhw-cAAAAJ&hl=en',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: 'resume.pdf',
   tagline:
     'I work at the intersection of research and production engineering — turning ideas that start on paper into systems that run at scale.',
 }

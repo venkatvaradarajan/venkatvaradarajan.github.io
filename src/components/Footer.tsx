@@ -1,3 +1,4 @@
+import { withBase } from '../utils/paths'
 import CopyEmail from './CopyEmail'
 import { profile } from '../data/content'
 
@@ -17,7 +18,7 @@ export default function Footer() {
           <a href={profile.scholar} target="_blank" rel="noreferrer" className="no-underline text-accent hover:text-accent-dark">
             Google Scholar
           </a>
-          <a href={profile.resumeUrl} className="no-underline text-accent hover:text-accent-dark">
+          <a href={withBase(profile.resumeUrl)} className="no-underline text-accent hover:text-accent-dark">
             Resume
           </a>
         </div>

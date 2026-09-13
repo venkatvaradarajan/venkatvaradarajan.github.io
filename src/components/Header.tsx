@@ -1,3 +1,4 @@
+import { withBase } from '../utils/paths'
 import { profile, header_sections } from '../data/content'
 import ThemeToggle from './ThemeToggle'
 
@@ -15,7 +16,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href={profile.resumeUrl}
+            href={withBase(profile.resumeUrl)}
             className="no-underline text-ink border border-hairline rounded px-3 py-1.5 hover:border-accent hover:text-accent"
           >
             Resume
@@ -23,7 +24,7 @@ export default function Header() {
           <ThemeToggle />
         </nav>
         <div className="sm:hidden flex items-center gap-3">
-          <a href={profile.resumeUrl} className="no-underline text-ink border border-hairline rounded px-3 py-1.5 text-sm">
+          <a href={withBase(profile.resumeUrl)} className="no-underline text-ink border border-hairline rounded px-3 py-1.5 text-sm">
             Resume
           </a>
           <ThemeToggle />

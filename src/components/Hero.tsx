@@ -1,3 +1,4 @@
+import { withBase } from '../utils/paths'
 import CopyEmail from './CopyEmail'
 import { profile } from '../data/content'
 
@@ -20,14 +21,14 @@ export default function Hero() {
             <a href={profile.scholar} target="_blank" rel="noreferrer" className="no-underline text-accent hover:text-accent-dark">
               Google Scholar
             </a>
-            <a href={profile.resumeUrl} className="no-underline text-accent hover:text-accent-dark">
+            <a href={withBase(profile.resumeUrl)} className="no-underline text-accent hover:text-accent-dark">
               Download resume
             </a>
           </div>
         </div>
 
         <img
-          src="/headshot.jpg"
+          src={withBase('headshot.jpg')}
           alt="Illustrated portrait of Venkat Varadarajan"
           className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border border-hairline"
         />
